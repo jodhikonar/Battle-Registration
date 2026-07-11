@@ -1,7 +1,7 @@
 // ====================================
 // CONFIG — paste your Apps Script Web App URL here
 // ====================================
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlD1RUdKmzedXm9CaPYyEJxKZiY_r2pwLNvl9pzns9gcaqGse5FP0FNHvfXifztDL0pQ/exec";
+const APPS_SCRIPT_URL = "https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnRNFT7q4rLTjEDVB9lzSO8v1foRm5HqzFt3F51ZrFW9AishpJ34-KGUClSKfi4q3Dlroc82Lk5Tk7R5ZXrjcRED90sWchbm_zS4fvKZCxgeldEzGfFEl7exYs9EueuxMuAtZ6tUVUumXQwVvrPNg9R914qDN4m4NlSVW4ZrO2A1Hl5J7-f7MWNT5Eeu6OjCL6y7YxXI0AZ2wr_7kqRAq_UnKuPZVoBAVL7ItjMgQ4VHCBwzItrv3YcxdldYZ28cFGVcszrZXz0HO-7p0T5t3jGVk_mfyiCS05wh3e8ycfuIK8eDY4w&lib=M4nRUc8qh2XGqQqhSt0SuLgVv7yvYUyfq";
 
 // ====================================
 // ELEMENTS

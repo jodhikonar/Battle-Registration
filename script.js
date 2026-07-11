@@ -1,8 +1,7 @@
 // ====================================
 // CONFIG — paste your Apps Script Web App URL here
 // ====================================
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlD1RUdKmzedXm9CaPYyEJxKZiY_r2pwLNvl9pzns9gcaqGse5FP0FNHvfXifztDL0pQ/exec?action=getCounts";
-
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzlD1RUdKmzedXm9CaPYyEJxKZiY_r2pwLNvl9pzns9gcaqGse5FP0FNHvfXifztDL0pQ/exec";
 // ====================================
 // ELEMENTS
 // ====================================

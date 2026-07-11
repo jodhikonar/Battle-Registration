@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Battle Registration — 14th Indian Hip Hop Championship</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-top">
+    <div class="brand">
+      <span class="brand-eyebrow">14th Indian Hip Hop Championship</span>
+      <h1 class="brand-title">BATTLE<span class="accent">REG</span></h1>
+    </div>
+    <button id="darkToggle" class="icon-btn" aria-label="Toggle dark mode">◐</button>
+  </div>
+  <div class="header-meta">
+    <span id="liveDate">--</span>
+    <span class="dot">•</span>
+    <span id="liveClock">--:--:--</span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- ============ REGISTRATION FORM ============ -->
+  <section id="formScreen" class="card form-card">
+    <h2 class="card-title">Register Your Battle</h2>
+    <p class="card-sub">Fill this in — takes under a minute.</p>
+
+    <form id="regForm" novalidate>
+
+      <label class="field">
+        <span class="field-label">Battle Type</span>
+        <select id="battleType" required>
+          <option value="" disabled selected>Select battle category</option>
+          <option value="Popping Battle">Popping Battle (1 vs 1)</option>
+          <option value="Breaking Battle">Breaking Battle (1 vs 1)</option>
+          <option value="Whacking Battle">Whacking Battle (1 vs 1)</option>
+          <option value="Hip Hop Battle">Hip Hop Battle (1 vs 1)</option>
+          <option value="Rep Your Style">Rep Your Style (1 vs 1)</option>
+        </select>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Full Name</span>
+        <input type="text" id="fullName" placeholder="e.g. Ananya Sharma" required>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Stage Name</span>
+        <input type="text" id="stageName" placeholder="e.g. B-Girl Nova" required>
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span class="field-label">Age</span>
+          <input type="number" id="age" min="5" max="99" placeholder="Age" required>
+        </label>
+
+        <label class="field">
+          <span class="field-label">Gender</span>
+          <select id="gender" required>
+            <option value="" disabled selected>Select</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Mobile Number</span>
+        <input type="tel" id="mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" maxlength="10" required>
+      </label>
+
+      <label class="field">
+        <span class="field-label">Email <span class="optional-tag">(optional)</span></span>
+        <input type="email" id="email" placeholder="you@example.com">
+      </label>
+
+      <label class="field">
+        <span class="field-label">City</span>
+        <input type="text" id="city" placeholder="e.g. Mumbai" required>
+      </label>
+
+      <label class="field">
+        <span class="field-label">T-Shirt Size</span>
+        <select id="tshirtSize" required>
+          <option value="" disabled selected>Select size</option>
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M">M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </label>
+
+      <div class="btn-row">
+        <button type="button" id="clearBtn" class="btn btn-ghost">Clear Form</button>
+        <button type="submit" id="submitBtn" class="btn btn-primary">
+          <span class="btn-label">Register Participant</span>
+          <span class="btn-spinner" hidden></span>
+        </button>
+      </div>
+
+      <p id="formError" class="form-error" hidden></p>
+    </form>
+  </section>
+
+  <!-- ============ SUCCESS / TOKEN STUB SCREEN ============ -->
+  <section id="successScreen" class="card success-card" hidden>
+    <div class="success-check">✓</div>
+    <h2 class="success-heading">Registration Successful</h2>
+
+    <div class="ticket">
+      <div class="ticket-row">
+        <span class="ticket-label">Battle Type</span>
+        <span id="outBattleType" class="ticket-value">—</span>
+      </div>
+      <div class="ticket-row">
+        <span class="ticket-label">Participant</span>
+        <span id="outName" class="ticket-value">—</span>
+      </div>
+      <div class="ticket-perforation"></div>
+      <div class="ticket-token-block">
+        <span class="ticket-token-label">TOKEN</span>
+        <span id="outToken" class="ticket-token">—</span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button id="printBtn" class="btn btn-ghost">Print Token</button>
+      <button id="nextBtn" class="btn btn-primary">Register Next Participant</button>
+    </div>
+  </section>
+
+  <!-- ============ LOADING OVERLAY ============ -->
+  <div id="loadingOverlay" class="loading-overlay" hidden>
+    <div class="loading-spinner"></div>
+    <p>Saving registration…</p>
+  </div>
+
+</main>
+
+<!-- ============ PRINT-ONLY RECEIPT ============ -->
+<div id="printReceipt" class="print-receipt">
+  <h3>Battle Registration System</h3>
+  <p class="print-sub">14th Indian Hip Hop Championship</p>
+  <hr>
+  <p><strong>Token:</strong> <span id="p_token">—</span></p>
+  <p><strong>Name:</strong> <span id="p_name">—</span></p>
+  <p><strong>Stage Name:</strong> <span id="p_stage">—</span></p>
+  <p><strong>Battle Category:</strong> <span id="p_battle">—</span></p>
+  <p><strong>Date:</strong> <span id="p_date">—</span></p>
+  <p><strong>Time:</strong> <span id="p_time">—</span></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
